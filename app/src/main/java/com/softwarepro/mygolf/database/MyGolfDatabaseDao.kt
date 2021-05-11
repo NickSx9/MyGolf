@@ -10,6 +10,8 @@ interface UserDataDatabaseDao {
     suspend fun update(userData: UserData)
     @Query("DELETE FROM myGolf_user_table")
     suspend fun clear()
+    @Query("SELECT * FROM myGolf_user_table Where emailAddress = :email AND password = :password")
+    suspend fun findUserDetails(email: String, password: String) : UserData
     @Query("SELECT * FROM myGolf_user_table")
     suspend fun getUserDataList() : List<UserData>
 }

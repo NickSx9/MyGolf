@@ -3,6 +3,7 @@ package com.softwarepro.mygolf
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Button
@@ -23,6 +24,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,14 +63,17 @@ class MainActivity : AppCompatActivity() {
             password.editText?.text?.clear()
         }
         submitButton.setOnClickListener() { view ->
-            if(viewModel.checkDetails(email.editText?.text.toString(), password.editText?.text.toString())){
-                loginSuccessful(view, loginPage)
-            }
-            else{
-                Snackbar.make(view, "Login Failed, Please Try Again!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show()
-                email.editText?.text?.clear()
-                password.editText?.text?.clear()
+            GlobalScope.launch(Dispatchers.Main) {
+                viewModel.checkDetails(email.editText?.text.toString(), password.editText?.text.toString())
+                Thread.sleep(500)
+                if (viewModel.authenticated) {
+                    loginSuccessful(view, loginPage)
+                } else {
+                    Snackbar.make(view, "Login Failed, Please Try Again!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show()
+                    email.editText?.text?.clear()
+                    password.editText?.text?.clear()
+                }
             }
         }
         registerButton.setOnClickListener(){
@@ -82,6 +89,12 @@ class MainActivity : AppCompatActivity() {
                         var email = enteredEmail.editText?.text.toString()
                         var password = enteredPassword.editText?.text.toString()
                         viewModel.registerNewDetails(name, email, password)
+                        Toast.makeText(applicationContext, "Registration Complete", Toast.LENGTH_SHORT).show()
+                        firstName.editText?.text?.clear()
+                        enteredEmail.editText?.text?.clear()
+                        enteredPassword.editText?.text?.clear()
+                        loginPage.visibility = View.VISIBLE
+                        registerPage.visibility = View.GONE
                     }else{
                         Snackbar.make(view, "Passwords do not match, please try again!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show()
@@ -144,7 +157,6 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         loginPage.visibility = View.GONE
         drawerLayout.visibility = View.VISIBLE
-
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
