@@ -21,4 +21,9 @@
         android:name="com.softwarepro.mygolf.ui.booking.BookingFragment"
         android:label="@string/menu_booking"
         tools:layout="@layout/fragment_booking" />
+    <fragment
+        android:id="@+id/nav_score"
+        android:name="com.softwarepro.mygolf.ui.score.ScoreFragment"
+        android:label="@string/menu_score"
+        tools:layout="@layout/fragment_score" />
 </navigation>

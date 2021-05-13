@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var viewModel: MainActivityViewModel
-
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,7 +126,6 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
@@ -154,7 +152,6 @@ class MainActivity : AppCompatActivity() {
     private fun loginSuccessful(view: View, loginPage: ConstraintLayout){
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Send Feedback", Snackbar.LENGTH_LONG)
@@ -171,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_course, R.id.nav_booking
+                R.id.nav_home, R.id.nav_course, R.id.nav_booking, R.id.nav_score
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
