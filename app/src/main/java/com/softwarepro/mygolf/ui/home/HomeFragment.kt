@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.softwarepro.mygolf.R
 import com.softwarepro.mygolf.database.*
+import com.softwarepro.mygolf.database.entities.UserDatabase
 
 class HomeFragment : Fragment() {
 
@@ -21,10 +22,8 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val application = requireNotNull(this.activity).application
-        val userDatabase = UserDataDatabase.getInstance(application).userDataDatabaseDao
-        val courseDatabase = CourseDataDatabase.getInstance(application).courseDataDatabaseDao
-        val gameDatabase = RoundDataDatabase.getInstance(application).roundDataDatabaseDao
-        val viewModelFactory = HomeViewModelFactory(userDatabase,courseDatabase, gameDatabase,application)
+        val userDatabase = UserDatabase.getInstance(application).userDao
+        val viewModelFactory = HomeViewModelFactory(userDatabase,application)
         val homeViewModel =
                 ViewModelProvider(
                         this, viewModelFactory).get(HomeViewModel::class.java)

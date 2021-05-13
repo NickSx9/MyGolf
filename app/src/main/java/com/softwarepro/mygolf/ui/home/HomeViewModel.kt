@@ -5,17 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.softwarepro.mygolf.database.CourseDataDatabaseDao
-import com.softwarepro.mygolf.database.RoundDataDatabaseDao
-import com.softwarepro.mygolf.database.UserData
-import com.softwarepro.mygolf.database.UserDataDatabaseDao
+import com.softwarepro.mygolf.database.entities.UserDao
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class HomeViewModel(val userDatabase: UserDataDatabaseDao,
-                    val courseDatabase: CourseDataDatabaseDao,
-                    val gameDatabase: RoundDataDatabaseDao,
+class HomeViewModel(val userDatabase: UserDao,
                     application: Application) : ViewModel() {
 
     init {
