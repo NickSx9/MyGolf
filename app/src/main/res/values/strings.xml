@@ -17,7 +17,7 @@
     <string name="password">Password</string>
 
     //Registration
-    <string name="firstName">First Name</string>
+    <string name="firstName">Full Name</string>
     <string name="confirmPassword">Confirm Password</string>
     <string name="registration">Registration</string>
 
@@ -31,5 +31,7 @@
     <string name="registerButton">Register New</string>
 
     <string name="infoDisplay">This application is in beta testing, no data is saved outside of your device. Registration is required to allow multiple accounts to be used on a single device. if this changes, you will be notified.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

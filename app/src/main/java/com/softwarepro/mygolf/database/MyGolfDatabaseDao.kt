@@ -32,9 +32,9 @@ interface RoundDataDatabaseDao {
     suspend fun insert(roundData: RoundData)
     @Update
     suspend fun update(roundData: RoundData)
-    @Query("DELETE FROM myGolf_round_table")
+    @Query("DELETE FROM myGolf_games_table")
     suspend fun clear()
-    @Query("SELECT * FROM myGolf_round_table")
+    @Query("SELECT * FROM myGolf_games_table")
     suspend fun getRoundDataList() : List<RoundData>
 }
 @Dao

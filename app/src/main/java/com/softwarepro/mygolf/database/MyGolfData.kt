@@ -35,18 +35,74 @@ data class CourseData(
 
         @ColumnInfo(name = "course_location")
         var courseLocation: String = "",
-)
 
-@Entity(tableName = "myGolf_round_table")
+        @ColumnInfo(name = "hole_one")
+        var holeOne: String = "",
+
+        @ColumnInfo(name = "hole_two")
+        var holeTwo: String = "",
+
+        @ColumnInfo(name = "hole_three")
+        var holeThree: String = "",
+
+        @ColumnInfo(name = "hole_four")
+        var holeFour: String = "",
+
+        @ColumnInfo(name = "hole_five")
+        var holeFive: String = "",
+
+        @ColumnInfo(name = "hole_six")
+        var holeSix: String = "",
+
+        @ColumnInfo(name = "hole_seven")
+        var holeSeven: String = "",
+
+        @ColumnInfo(name = "hole_eight")
+        var holeEight: String = "",
+
+        @ColumnInfo(name = "hole_nine")
+        var holeNine: String = "",
+
+        @ColumnInfo(name = "hole_ten")
+        var holeTen: String = "",
+
+        @ColumnInfo(name = "hole_eleven")
+        var holeEleven: String = "",
+
+        @ColumnInfo(name = "hole_twelve")
+        var holeTwelve: String = "",
+
+        @ColumnInfo(name = "hole_thirteen")
+        var holeThirteen: String = "",
+
+        @ColumnInfo(name = "hole_fourteen")
+        var holeFourteen: String = "",
+
+        @ColumnInfo(name = "hole_fifteen")
+        var holeFifteen: String = "",
+
+        @ColumnInfo(name = "hole_sixteen")
+        var holeSixteen: String = "",
+
+        @ColumnInfo(name = "hole_seventeen")
+        var holeSeventeen: String = "",
+
+        @ColumnInfo(name = "hole_eighteen")
+        var holeEighteen: String = ""
+)
+@Entity(tableName = "myGolf_games_table")
 data class RoundData(
         @PrimaryKey(autoGenerate = true)
-        var roundId: Long = 0L,
+        var gameId: Long = 0L,
 
         @ColumnInfo(name = "courseId")
         var courseId: Long = 0L,
 
         @ColumnInfo(name = "date")
         var date: String? = "",
+
+        @ColumnInfo(name = "player_name")
+        var playerName: String? = "",
 
         @ColumnInfo(name = "hole_one")
         var holeOne: String = "",
