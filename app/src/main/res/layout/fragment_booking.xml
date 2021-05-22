@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteX="52dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/titleCompany"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -30,5 +30,72 @@
         app:layout_constraintStart_toEndOf="@+id/imageViewCompanyIcon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="MyGolf" />
+
+    <TextView
+        android:id="@+id/bookingSelectSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/booking_select_course"
+        android:textColor="#020202"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/course_booking_dropdown"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCompanyIcon" />
+
+    <Spinner
+        android:id="@+id/course_booking_dropdown"
+        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+        android:background="@drawable/layout_corners_shape"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookingSelectSpinner" />
+
+    <TextView
+        android:id="@+id/bookingSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/booking_select_date"
+        android:textColor="#020202"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/course_booking_dropdown"
+        app:layout_constraintTop_toBottomOf="@+id/course_booking_dropdown" />
+
+    <Button
+        android:id="@+id/btnPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Pick Date and TIme"
+        app:layout_constraintStart_toStartOf="@+id/bookingSelectDate"
+        app:layout_constraintTop_toBottomOf="@+id/bookingSelectDate" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnPick"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btnPick"
+        app:layout_constraintTop_toBottomOf="@+id/btnPick" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="16dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

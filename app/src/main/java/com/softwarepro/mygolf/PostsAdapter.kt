@@ -6,14 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.softwarepro.mygolf.database.entities.Course
 
-class PostsAdapter(val courses: ArrayList<String> ) : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>(){
+class PostsAdapter(val courses: List<Course> ) : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>(){
 
     override fun getItemCount() = courses.size
 
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
-        holder.courseName.text = courses[position]
+        holder.courseName.text = courses[position].courseName
+        holder.courseLocation.text = courses[position].courseLocation
     }
 
     override fun onCreateViewHolder(
@@ -26,6 +28,7 @@ class PostsAdapter(val courses: ArrayList<String> ) : RecyclerView.Adapter<Posts
 
     class PostsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val courseName: TextView = itemView.findViewById(R.id.courseName)
+        val courseLocation: TextView = itemView.findViewById(R.id.courseLocation)
     }
 }
 //https://www.youtube.com/watch?v=MBCuvneFEp0   6.39

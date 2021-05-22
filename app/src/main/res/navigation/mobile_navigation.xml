@@ -15,7 +15,17 @@
         android:id="@+id/nav_course"
         android:name="com.softwarepro.mygolf.ui.course.CourseFragment"
         android:label="@string/fragment_course"
-        tools:layout="@layout/fragment_course" />
+        tools:layout="@layout/fragment_course" >
+        <action
+            android:id="@+id/action_nav_course_to_courseAddFragment"
+            app:destination="@id/nav_courseAddFragment" />
+        <action
+            android:id="@+id/action_nav_course_to_courseDeleteFragment"
+            app:destination="@id/nav_courseDeleteFragment" />
+        <action
+            android:id="@+id/action_nav_course_to_courseEditFragment"
+            app:destination="@id/nav_courseEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_booking"
         android:name="com.softwarepro.mygolf.ui.booking.BookingFragment"
@@ -26,4 +36,31 @@
         android:name="com.softwarepro.mygolf.ui.score.ScoreFragment"
         android:label="@string/menu_score"
         tools:layout="@layout/fragment_score" />
+    <fragment
+        android:id="@+id/nav_courseAddFragment"
+        android:name="com.softwarepro.mygolf.CourseAddFragment"
+        android:label="@string/menu_course_add"
+        tools:layout="@layout/fragment_course_add" >
+        <action
+            android:id="@+id/action_courseAddFragment_to_nav_course"
+            app:destination="@id/nav_course" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_courseDeleteFragment"
+        android:name="com.softwarepro.mygolf.CourseDeleteFragment"
+        android:label="@string/menu_course_delete"
+        tools:layout="@layout/fragment_course_delete" >
+        <action
+            android:id="@+id/action_courseDeleteFragment_to_nav_course"
+            app:destination="@id/nav_course" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_courseEditFragment"
+        android:name="com.softwarepro.mygolf.CourseEditFragment"
+        android:label="@string/menu_course_edit"
+        tools:layout="@layout/fragment_course_edit" >
+        <action
+            android:id="@+id/action_courseEditFragment_to_nav_course"
+            app:destination="@id/nav_course" />
+    </fragment>
 </navigation>

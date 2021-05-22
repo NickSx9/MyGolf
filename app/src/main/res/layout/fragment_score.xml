@@ -1,14 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.score.ScoreFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.home.HomeFragment">
 
-</FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/playerName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/playerName"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/bookingSelectSpinner"
+                    app:layout_constraintTop_toTopOf="@+id/numberOfPlayers"
+                    app:startIconContentDescription="@string/content_description_email_icon"
+                    app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/playerNames"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/titleCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="56dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/title"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewCompanyIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="MyGolf" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/numberOfPlayers"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/playerSelect"
+                    app:layout_constraintStart_toStartOf="@+id/bookingSelectSpinner"
+                    app:layout_constraintTop_toBottomOf="@+id/course_score_dropdown"
+                    app:startIconContentDescription="@string/content_description_email_icon"
+                    app:startIconDrawable="@drawable/ic_baseline_supervisor_account_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/numberPlayers"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/bookingSelectSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/booking_select_course"
+                    android:textColor="#020202"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+                    app:layout_constraintTop_toBottomOf="@+id/backgroundImage" />
+
+                <Spinner
+                    android:id="@+id/course_score_dropdown"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/layout_corners_shape"
+                    android:inputType="none"
+                    app:layout_constraintStart_toStartOf="@+id/bookingSelectSpinner"
+                    app:layout_constraintTop_toBottomOf="@+id/bookingSelectSpinner" />
+
+                <Button
+                    android:id="@+id/addPlayer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_weight="1"
+                    android:text="Add"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/playerName"
+                    app:layout_constraintTop_toBottomOf="@+id/course_score_dropdown"
+                    tools:visibility="visible" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/numberOfPlayers">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/scoreConstraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </HorizontalScrollView>
+
+                <ImageView
+                    android:id="@+id/imageViewCompanyIcon"
+                    android:layout_width="158dp"
+                    android:layout_height="121dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/iconmain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/backgroundImage"
+                    android:layout_width="279dp"
+                    android:layout_height="157dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/background_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewCompanyIcon" />
+
+                <Button
+                    android:id="@+id/buttonCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="25dp"
+                    android:text="Enter"
+                    app:layout_constraintStart_toEndOf="@+id/numberOfPlayers"
+                    app:layout_constraintTop_toBottomOf="@+id/course_score_dropdown" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val confirmPassword: TextInputLayout = findViewById(R.id.confirmPasswordEntryField)
         //Login screen.
         var loginPage: ConstraintLayout = findViewById(R.id.loginScreen)
-        val email : TextInputLayout = findViewById(R.id.emailInput)
+        val email : TextInputLayout = findViewById(R.id.numberOfPlayers)
         val password : TextInputLayout = findViewById(R.id.passwordInput)
         val submitButton: Button = findViewById(R.id.buttonSubmit)
         val cancelButton: Button = findViewById(R.id.buttonCancel)

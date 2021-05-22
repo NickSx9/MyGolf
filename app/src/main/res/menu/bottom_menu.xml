@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/bottom_menuAdd"
+        android:orderInCategory="100"
+        android:title="Add Course"
+        android:icon="@drawable/ic_baseline_add_circle"
+        />
+    <item
+        android:id="@+id/bottom_menuEdit"
+        android:orderInCategory="100"
+        android:title="Edit Course"
+        android:icon="@drawable/ic_baseline_edit"
+         />
+    <item
+        android:id="@+id/bottom_menuDelete"
+        android:orderInCategory="100"
+        android:title="Delete Course"
+        android:icon="@drawable/ic_baseline_delete"
+         />
 </menu>

@@ -10,10 +10,12 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_course">Course</string>
+    <string name="menu_course_edit">Edit Course</string>
+    <string name="menu_course_delete">Delete Course</string>
+
     <string name="menu_booking">Bookings</string>
     <string name="fragment_course">Course Details</string>
     <string name="menu_score">Score Card</string>
-
 
     //login input fields
     <string name="emailAddress">Email</string>
@@ -36,5 +38,39 @@
     <string name="infoDisplay">This application is in beta testing, no data is saved outside of your device. Registration is required to allow multiple accounts to be used on a single device. if this changes, you will be notified.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //add course fragment
+    <string name="menu_course_add">Add Course</string>
+    <string name="course_add_name">Course Name</string>
+    <string name="course_add_location">Course Location</string>
+    <string name="course_add_number">Course Phone Number</string>
+    <string name="course_hole_title">Course Hole Details</string>
+
+
+    //delete course fragment
+    <string name="course_delete_title">Delete Record</string>
+    <string name="course_delete_spinner_hint">Select Course</string>
+    <string name="course_delete_buttonText">Delete</string>
+
+
+    <string name="booking_select_date">Select Booked Date</string>
+    <string name="booking_select_course">Select Course</string>
+
+    <string name="playerSelect">Total Players</string>
+    <string name="playerName">Player Name</string>
+
+
+    <string name="name_1">playerOne</string>
+    <string name="name_2">playerTwo</string>
+    <string name="name_3">playerThree</string>
+    <string name="name_4">playerFour</string>
+    <string name="name_5">playerFive</string>
+    <string name="name_6">playerSix</string>
+
+
+
+
+
+
 
 </resources>
