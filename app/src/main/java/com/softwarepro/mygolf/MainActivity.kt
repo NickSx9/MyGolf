@@ -14,14 +14,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import com.softwarepro.mygolf.ui.settings.SettingsFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         val submitButton: Button = findViewById(R.id.buttonSubmit)
         val cancelButton: Button = findViewById(R.id.buttonCancel)
         val registerButton: Button = findViewById(R.id.registerButton)
+
         cancelButton.setOnClickListener() {
             email.editText?.text?.clear()
             password.editText?.text?.clear()
@@ -59,8 +64,8 @@ class MainActivity : AppCompatActivity() {
         submitButton.setOnClickListener() { view ->
             GlobalScope.launch(Dispatchers.Main) {
                 viewModel.checkDetails(
-                    email.editText?.text.toString(),
-                    password.editText?.text.toString()
+                        email.editText?.text.toString(),
+                        password.editText?.text.toString()
                 )
                 Thread.sleep(500)
                 if (viewModel.authenticated) {
@@ -87,9 +92,9 @@ class MainActivity : AppCompatActivity() {
                         var password = enteredPassword.editText?.text.toString()
                         viewModel.registerNewDetails(name, email, password)
                         Toast.makeText(
-                            applicationContext,
-                            "Registration Complete",
-                            Toast.LENGTH_SHORT
+                                applicationContext,
+                                "Registration Complete",
+                                Toast.LENGTH_SHORT
                         ).show()
                         firstName.editText?.text?.clear()
                         enteredEmail.editText?.text?.clear()
@@ -98,9 +103,9 @@ class MainActivity : AppCompatActivity() {
                         registerPage.visibility = View.GONE
                     }else{
                         Snackbar.make(
-                            view,
-                            "Passwords do not match, please try again!",
-                            Snackbar.LENGTH_LONG
+                                view,
+                                "Passwords do not match, please try again!",
+                                Snackbar.LENGTH_LONG
                         )
                                 .setAction("Action", null).show()
                     }
@@ -167,12 +172,28 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_course, R.id.nav_booking, R.id.nav_score
-            ), drawerLayout
+                setOf(
+                        R.id.nav_home, R.id.nav_course, R.id.nav_booking, R.id.nav_score, R.id.nav_settings
+                ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when ((destination as FragmentNavigator.Destination).className) {
+                // Dont show
+                SettingsFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+
+                }
+                // show
+                else -> {
+                    fab.visibility = View.VISIBLE
+
+                }
+            }
+        }
+
     }
     private fun feedbackEmail(){
         val emailIntent = Intent(Intent.ACTION_SEND)

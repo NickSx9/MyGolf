@@ -66,10 +66,18 @@
     <string name="name_4">playerFour</string>
     <string name="name_5">playerFive</string>
     <string name="name_6">playerSix</string>
-
-
-
-
+    <string name="update">Update</string>
+    <string name="reset">Reset</string>
+    <string name="reset_app">Reset App</string>
+    <string name="general">General</string>
+    <string name="stableford">Stableford</string>
+    <string name="match_play">Match Play</string>
+    <string name="stroke_play">Stroke Play</string>
+    <string name="handicap">Handicap</string>
+    <string name="scoring">Scoring</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="visual_options">Visual Options</string>
+    <string name="settings">Settings</string>
 
 
 
