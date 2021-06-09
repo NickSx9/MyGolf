@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:columnCount="6"
+    app:rowCount="24">
+
+    <TextView
+        android:id="@+id/scoreCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:gravity="center"
+        android:text="Score Card" />
+
+    <TextView
+        android:id="@+id/courseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="Course Name:" />
+    <TextView
+        android:id="@+id/courseNameDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_marginEnd="5dp"
+        android:text="Thorpe Meadow" />
+
+</GridLayout>
