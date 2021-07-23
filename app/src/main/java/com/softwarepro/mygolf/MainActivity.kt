@@ -1,9 +1,13 @@
 package com.softwarepro.mygolf
 
+import android.content.ClipData
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -13,6 +17,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.ui.AppBarConfiguration
@@ -25,6 +30,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import com.softwarepro.mygolf.ui.booking.BookingFragment
+import com.softwarepro.mygolf.ui.profile.ProfileFragment
+import com.softwarepro.mygolf.ui.score.ScoreFragment
 import com.softwarepro.mygolf.ui.settings.SettingsFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -131,9 +139,37 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return when(item.itemId) {
+            R.id.action_profile -> {
+                Log.d("Menu", "Profile Page")
+                navController.navigate(R.id.nav_profile)
+                // nav to profile page.
+                true
+            }
+            R.id.action_settings -> {
+                Log.d("Menu","Settings")
+                navController.navigate(R.id.nav_settings)
+                true
+            }
+            R.id.action_logout -> {
+                Log.d("Menu","Logout")
+                logoutAppReset()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+    private fun logoutAppReset(){
+        Toast.makeText(this, "You have succesfully logged out!", Toast.LENGTH_SHORT).show()
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
     private fun checkRegistration(email: TextInputLayout, password: TextInputLayout):Boolean{
         var isRegistered = false
@@ -173,27 +209,41 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
                 setOf(
-                        R.id.nav_home, R.id.nav_course, R.id.nav_booking, R.id.nav_score, R.id.nav_settings
+                        R.id.nav_home, R.id.nav_course, R.id.nav_booking, R.id.nav_score, R.id.nav_settings, R.id.nav_profile
                 ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when ((destination as FragmentNavigator.Destination).className) {
-                // Dont show
+                // Do not show the FAB on these pages.
+                BookingFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                ScoreFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                CourseAddFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                CourseDeleteFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                CourseEditFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
                 SettingsFragment::class.qualifiedName -> {
                     fab.visibility = View.GONE
-
                 }
-                // show
+                ProfileFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                // Show the FAB on every other page!
                 else -> {
                     fab.visibility = View.VISIBLE
-
                 }
             }
         }
-
     }
     private fun feedbackEmail(){
         val emailIntent = Intent(Intent.ACTION_SEND)
@@ -203,3 +253,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(emailIntent)
     }
 }
+

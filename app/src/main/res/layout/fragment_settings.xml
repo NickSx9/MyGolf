@@ -11,6 +11,7 @@
         android:layout_width="174dp"
         android:layout_height="160dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/companyLogo"
         android:src="@drawable/logowithname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:text="@string/visual_options"
         android:textColor="#5C5C5C"
         android:textSize="14sp"
+        android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyLogo" />
 
@@ -58,8 +60,31 @@
         android:text="@string/scoring"
         android:textColor="#5C5C5C"
         android:textSize="14sp"
+        android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="@+id/darkModeLabel"
         app:layout_constraintTop_toBottomOf="@+id/darkModeLabel" />
+
+    <TextView
+        android:id="@+id/currentHandicap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#5C5C5C"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/darkModeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/handicapLabel" />
+
+    <TextView
+        android:id="@+id/currentScoringMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#5C5C5C"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/darkModeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/handicapLabel"
@@ -138,12 +163,13 @@
         android:id="@+id/generalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="@string/general"
         android:textColor="#5C5C5C"
         android:textSize="14sp"
+        android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="@+id/visualLabel"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/currentScoringMethod" />
 
     <TextView
         android:id="@+id/resetLabel"

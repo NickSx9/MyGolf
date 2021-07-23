@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">MyGolfMobileApp@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="action_profile">My Profile</string>
     <string name="action_logout">Logout</string>
 
     <string name="menu_home">Home</string>
@@ -36,6 +37,7 @@
     <string name="registerButton">Register New</string>
 
     <string name="infoDisplay">This application is in beta testing, no data is saved outside of your device. Registration is required to allow multiple accounts to be used on a single device. if this changes, you will be notified.</string>
+    <string name="profiledisclaimer">This application is in beta testing, no data is saved outside of your device.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -78,7 +80,6 @@
     <string name="dark_mode">Dark mode</string>
     <string name="visual_options">Visual Options</string>
     <string name="settings">Settings</string>
-
 
 
 </resources>
