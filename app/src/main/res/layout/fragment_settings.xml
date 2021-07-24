@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#AEBC9E"
     tools:context=".ui.settings.SettingsFragment">
 
     <ImageView
         android:id="@+id/companyLogo"
-        android:layout_width="174dp"
-        android:layout_height="160dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/companyLogo"
         android:src="@drawable/logowithname"

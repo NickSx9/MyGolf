@@ -4,31 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#AEBC9E"
     tools:context=".ui.home.HomeFragment">
 
     <ImageView
         android:id="@+id/imageViewCompanyIcon"
-        android:layout_width="144dp"
-        android:layout_height="119dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/iconmain"
+        android:src="@drawable/logowithname"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/titleCompany"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/title"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.335"
-        app:layout_constraintStart_toEndOf="@+id/imageViewCompanyIcon"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="MyGolf" />
 
     <TextView
         android:id="@+id/text_home"
@@ -41,5 +28,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewCompanyIcon" />
+
+    <ImageView
+        android:id="@+id/driverImage"
+        android:layout_width="410dp"
+        android:layout_height="266dp"
+        android:alpha="0.7"
+        android:src="@drawable/driverandball"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <Spinner
+        android:id="@+id/scorecard_dropdown"
+        android:background="@drawable/layout_corners_shape"
+        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/driverImage" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

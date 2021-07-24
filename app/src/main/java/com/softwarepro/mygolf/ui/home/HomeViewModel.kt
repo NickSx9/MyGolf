@@ -18,7 +18,7 @@ class HomeViewModel(val userDatabase: UserDao,
     }
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Last Game Results"
+        value = "Previous Game Results"
     }
     val text: LiveData<String> = _text
 

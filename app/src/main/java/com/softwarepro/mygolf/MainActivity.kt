@@ -166,7 +166,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
     private fun logoutAppReset(){
-        Toast.makeText(this, "You have succesfully logged out!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "You have successfully logged out!", Toast.LENGTH_SHORT).show()
         val intent = intent
         finish()
         startActivity(intent)
