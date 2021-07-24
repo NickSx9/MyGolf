@@ -88,7 +88,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight="1"
-                    android:text="Add"
+                    android:text="@string/add"
                     android:visibility="gone"
                     app:layout_constraintStart_toEndOf="@+id/playerName"
                     app:layout_constraintTop_toBottomOf="@+id/course_score_dropdown"
@@ -105,7 +105,7 @@
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:id="@+id/scoreConstraintLayout"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:gravity="center"

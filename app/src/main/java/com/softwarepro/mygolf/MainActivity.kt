@@ -2,6 +2,7 @@ package com.softwarepro.mygolf
 
 import android.content.ClipData
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +32,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarepro.mygolf.ui.booking.BookingFragment
+import com.softwarepro.mygolf.ui.course.CourseFragment
 import com.softwarepro.mygolf.ui.profile.ProfileFragment
 import com.softwarepro.mygolf.ui.score.ScoreFragment
 import com.softwarepro.mygolf.ui.settings.SettingsFragment
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
         //hide registerPage
@@ -236,6 +239,9 @@ class MainActivity : AppCompatActivity() {
                     fab.visibility = View.GONE
                 }
                 ProfileFragment::class.qualifiedName -> {
+                    fab.visibility = View.GONE
+                }
+                CourseFragment::class.qualifiedName -> {
                     fab.visibility = View.GONE
                 }
                 // Show the FAB on every other page!
